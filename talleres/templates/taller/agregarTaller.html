@@ -1,7 +1,7 @@
 {% extends 'taller/base.html' %}
 {% block content %}
 <div class="container">
-	<form method="post" action="/guardarTaller">
+	<form method="post" action="/guardarTaller" enctype="multipart/form-data">
 		{% csrf_token %}		
 		<div class="form-group">
 		  <label for="usr">Nombre Taller:</label>

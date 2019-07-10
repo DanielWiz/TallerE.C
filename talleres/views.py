@@ -169,7 +169,7 @@ def guardarTaller(request):
     descripcion = request.POST['txtDescripcion']
     fecha = request.POST['txtFecha']
     lugar_taller = request.POST['txtLugar']
-    imagen = request.POST['txtImagen']    
+    imagen = request.FILES['txtImagen']    
     t = Taller(nombre = nombre, descripcion = descripcion, fecha = fecha, lugar_taller = lugar_taller, imagen = imagen)
     t.save()
     return render(request, 'taller/tallerGuardado.html', {'nombre':nombre})
