@@ -2,7 +2,7 @@
 {% block content %}
 <div class="container">
 	<h2>Digite los cambios al taller:</h2>
-	<form method="post" action="/tallerModificado">
+	<form method="post" action="/tallerModificado" enctype="multipart/form-data">
 		{% csrf_token %}
 		<div class="form-group">
 		  <label for="usr">Código Taller:</label>

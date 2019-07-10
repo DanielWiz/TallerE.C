@@ -185,8 +185,8 @@ def tallerModificado(request):
     descripcion = request.POST['txtDescripcion']
     fecha = request.POST['txtFecha']
     lugar_taller = request.POST['txtLugar']
-    
-    t = Taller(codigo_taller=codigo_taller, nombre = nombre, descripcion = descripcion, fecha = fecha, lugar_taller = lugar_taller)
+    imagen = request.FILES['txtImagen']
+    t = Taller(codigo_taller=codigo_taller, nombre = nombre, descripcion = descripcion, fecha = fecha, lugar_taller = lugar_taller, imagen = imagen)
     t.save()
     return render(request, 'taller/tallerModificado.html', {'nombre':nombre})
 
