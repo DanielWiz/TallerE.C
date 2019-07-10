@@ -16,9 +16,6 @@ def talleres(request):
 def cargarPropuestas(request):
     return render(request, 'taller/propuestas.html', {})
 
-def mapa(request):
-    return render(request, 'taller/mapa.html', {})
-
 def cargarLogin(request):
     return render(request, 'registration/login.html')
 
