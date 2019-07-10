@@ -13,6 +13,7 @@
 					        	Descripción: {{ t.descripcion }}</br>
 					        	Fecha taller: {{t.fecha}}</br>
 					        	Dirección y/o lugar donde se realizará el taller: {{t.lugar_taller}}
+					        	<br><img class="img-rounded" alt="Aquí había una imagen" style="width: 218px" src="{{ t.imagen.url }}" >
 					        </li>
 					    	{% endfor %}
 					    </ul>
@@ -20,7 +21,11 @@
 					    <p>No hay talleres registrados.</p>
 					{% endif %}
 				</div>
-			<a href="/" class="btn btn-info" role="button">Volver</a>
+			<div class="row">
+				<div class="col text-center">
+					<a href="/" class="btn btn-info" role="button">Volver</a>
+				</div>		
+			</div>
 		</div>
 	</div>
 </div>

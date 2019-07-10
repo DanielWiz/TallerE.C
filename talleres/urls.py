@@ -1,5 +1,7 @@
 from django.urls import path, include
 from talleres import views as core_views
+from django.conf import settings
+from django.conf.urls.static import static
 from . import views
 
 urlpatterns = [
@@ -23,3 +25,6 @@ urlpatterns = [
     path('eliminarPropuestaParaAprobar/<int:propuesta_id>', views.eliminarPropuestaParaAprobar, name='eliminarPropuestaParaAprobar'),
 
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

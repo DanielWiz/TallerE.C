@@ -5,7 +5,7 @@ from django.http import HttpResponse
 from .forms import UserCreationForm
 from .models import Propuesta, Taller, PropuestaAprobada
 from django.template import loader
-from django.contrib.auth.decorators import user_passes_test
+from django.contrib.auth.decorators import user_passes_test, login_required
 
 def index(request):
     return render(request, 'taller/index.html', {})
@@ -93,6 +93,7 @@ def VotosDown(request,propuesta_id):
     votos.votes.down(user.id)
     return redirect("/propuestas")
 
+@login_required
 def agregarNuevaPropuesta(request):
     return render(request, 'taller/formularioPropuesta.html')
 
