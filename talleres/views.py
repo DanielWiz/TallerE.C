@@ -76,7 +76,7 @@ def talleres(request):
 
     #Invocamos la página de respuesta 'index.html'
     return HttpResponse(template.render(context, request))  
-
+@login_required
 def detallePropuestas(request, propuesta_id):
 	propuestaD = PropuestaAprobada.objects.get(pk=propuesta_id)
 	return render(request, 'taller/propuestasDetalles.html', {'propuestaD': propuestaD})
