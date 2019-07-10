@@ -18,7 +18,8 @@
 					      <tr>
 					        <td><a href="/propuesta/{{ d.IdPropuestaAprobada }}"><strong>{{d.PropuestaAprobadaNombre}}</strong></a></td>
 					        <td><strong>{{d.PropuestaAprobadaDetalle}}</strong></td>	
-					        <td><strong>{{d.vote_score}}</strong></td>		        
+					        <td><strong>{{d.vote_score}}</strong></td>	
+					        <td><a class="btn-lg btn-success" href="/propuesta/{{ d.IdPropuestaAprobada }}">Votar</a></td>	        
 					      </tr>			      
 					    </tbody>
 					    {% endfor %}
