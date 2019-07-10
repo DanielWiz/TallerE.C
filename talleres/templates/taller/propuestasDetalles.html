@@ -1,22 +1,27 @@
 {% extends 'taller/base.html' %}
 {% block content %}
 <div id="containerDetallePropuesta" class="container">
-	<h2>Propuesta: {{propuestaD.PropuestaAprobadaNombre}}</h2>
-	<dl>
-		<dt>Detalle: {{ propuestaD.PropuestaAprobadaDetalle}}</dt>
-	</dl>
+	<div class="row">
+		<div class="col text-center">
+			<h2>Afectua tu voto <br><small>Solo podras votar una vez por propuesta</small></h2>
+		</div>
+	</div>	
+	
+	<div class="row">
+		<div class="col text-center">
+			<h3>Nombre Propuesta: <br>{{propuestaD.PropuestaAprobadaNombre}}</h3>
+			<h3>descripción: <br>{{ propuestaD.PropuestaAprobadaDetalle}}</h3>
+		</div>		
+	</div>	
 
 	<div class="row">
 		<div class="col text-center">
 			<a href="/propuvoto/{{propuestaD.IdPropuestaAprobada}}" class="btn btn-success" role="button" >Si</a>
-		</div>		
-	</div>	
-
-	<div class="row">
-		<div class="col text-center">
 			<a id="linkVolver" href="/propunovoto/{{propuestaD.IdPropuestaAprobada}}" class="btn btn-warning" role="button">No</a>
 		</div>		
 	</div>	
+
+	
 
 	<div class="row">
 		<div class="col text-center">
