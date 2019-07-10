@@ -145,3 +145,52 @@ def eliminarPropuestaParaAprobar(request, propuesta_id):
     propuestaBorrar = Propuesta.objects.get(pk=propuesta_id)
     propuestaBorrar.delete()
     return render(request, 'taller/eliminarPropuestaParaAprobar.html')
+
+@user_passes_test(lambda u: u.is_superuser)
+def administrarTalleres(request):
+    cargarTalleres = Taller.objects.all()
+
+    #Cargamos el archivo index.html que se encuentra en la carpeta 'templates'
+    template = loader.get_template('taller/administrarTalleres.html')
+
+    #Creamos el nombre 'deptos' para reutilizarlo en el archivo 'index.html'
+    context = {
+        'talleres': cargarTalleres,
+    }
+
+    #Invocamos la página de respuesta 'index.html'
+    return HttpResponse(template.render(context, request))
+
+def agregarTaller(request):
+    return render(request, 'taller/agregarTaller.html')
+
+def guardarTaller(request):
+    nombre = request.POST['txtNombre']
+    descripcion = request.POST['txtDescripcion']
+    fecha = request.POST['txtFecha']
+    lugar_taller = request.POST['txtLugar']
+    imagen = request.POST['txtImagen']    
+    t = Taller(nombre = nombre, descripcion = descripcion, fecha = fecha, lugar_taller = lugar_taller, imagen = imagen)
+    t.save()
+    return render(request, 'taller/tallerGuardado.html', {'nombre':nombre})
+    
+
+def modificarTaller(request, taller_codigo):
+    tallerAModificar = Taller.objects.get(pk=taller_codigo)
+    return render(request, 'taller/tallerAModificar.html', {'tallerAModificar': tallerAModificar})
+
+def tallerModificado(request):
+    codigo_taller = request.POST['txtNoEditableCodigo']
+    nombre = request.POST['txtNombre']
+    descripcion = request.POST['txtDescripcion']
+    fecha = request.POST['txtFecha']
+    lugar_taller = request.POST['txtLugar']
+    
+    t = Taller(codigo_taller=codigo_taller, nombre = nombre, descripcion = descripcion, fecha = fecha, lugar_taller = lugar_taller)
+    t.save()
+    return render(request, 'taller/tallerModificado.html', {'nombre':nombre})
+
+def eliminarTaller(request, taller_codigo):
+    tallerAEliminar = Taller.objects.get(pk=taller_codigo)
+    tallerAEliminar.delete()
+    return render(request, 'taller/tallerEliminado.html')

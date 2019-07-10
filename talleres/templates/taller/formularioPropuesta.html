@@ -7,11 +7,11 @@
 		{% csrf_token %}
 		<div class="form-group">
 		  <label for="usr">Nombre propuesta:</label>
-		  <input type="text" name="txtNombrePropuesta" class="form-control">
+		  <input type="text" name="txtNombrePropuesta" class="form-control" required>
 		</div>
 		<div class="form-group">
 		  <label for="usr">Descripción Propuesta:</label>
-		  <input type="text" name="txtDetallePropuesta" class="form-control">
+		  <input type="text" name="txtDetallePropuesta" class="form-control" required>
 		</div>
 		<div class="row">
 			<div class="col text-center">
@@ -19,6 +19,11 @@
 			</div>		
 		</div>							
 	</form>
+	<div class="row">
+		<div class="col text-center">
+			<a href="/" class="btn btn-info" role="button">Volver</a>
+		</div>		
+	</div>
 </div>
 
 {% endblock %}

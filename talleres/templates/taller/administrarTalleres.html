@@ -1,0 +1,43 @@
+{% extends 'taller/base.html' %}
+{% block content %}
+
+<div class="container">
+	<h2>Talleres</h2>
+		{% if talleres %}
+			<a href="/agregarTaller" class="btn-lg btn-info">Agregar Taller</a>				
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Código</th>
+					    <th>Nombre Taller</th>
+					    <th>Descripción</th>
+					    <th>Fecha</th>
+					    <th>Lugar</th>
+					    <th>Administrar</th>
+					</tr>
+				</thead>
+				{% for t in talleres|dictsort:"codigo_taller" %}
+				<tbody>
+					<tr>
+						<td><strong>{{t.codigo_taller}}</strong></td>
+					    <td><strong>{{t.nombre}}</strong></td>
+					    <td><strong>{{t.descripcion}}</strong></td>	
+					    <td><strong>{{t.fecha}}</strong></td>
+					    <td><strong>{{t.lugar_taller}}</strong></td>
+					    <td><a href="/modificarTaller/{{ t.codigo_taller }}" class="btn-lg btn-success" >Modificar</a></td>
+					    <td><a href="/eliminarTaller/{{ t.codigo_taller }}" class="btn-lg btn-danger">Eliminar</a></td>
+					</tr>			      
+				</tbody>
+				{% endfor %}
+			</table>	
+		{% else %}
+			<p>No Hay Propuestas registradas.</p>
+		{% endif %}
+		<div class="row">
+			<div class="col text-center">
+				<a href="/" class="btn btn-info" role="button">Volver</a>
+			</div>		
+		</div>
+</div>
+
+{% endblock %}

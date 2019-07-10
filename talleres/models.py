@@ -29,3 +29,6 @@ class Taller(models.Model):
 
 	def __str__(self):
 		return "%s. %s" % (self.codigo_taller, self.nombre)
+
+	def fecha_form(self):
+		return self.fecha.strftime('%Y-%m-%d %H:%M:%S')

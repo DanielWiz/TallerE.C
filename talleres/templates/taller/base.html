@@ -29,11 +29,12 @@
       </div>
       <ul class="nav navbar-nav">
         <li><a href="{% url 'inicio' %}">Inicio</a></li>
-        <li><a href="{% url 'talleres' %}">Talleres</a></li>
+        <li><a href="{% url 'talleres' %}">Talleres</a></li>        
+        <li><a href="{% url 'cargarPropuestas' %}">Propuestas</a></li>
         {% if user.is_staff %}
           <li><a href="{% url 'propuestasParaAprobar' %}">Propuestas en espera de aprobación</a></li>
+          <li><a href="{% url 'administrarTalleres' %}">Administrar Talleres</a></li>
         {% endif %}
-        <li><a href="{% url 'cargarPropuestas' %}">Propuestas</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         {% if user.is_authenticated %}
