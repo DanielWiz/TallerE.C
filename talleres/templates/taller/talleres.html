@@ -10,7 +10,7 @@
 					    	{% for t in talleres %}
 					      	<li>
 					       		<h3>{{ t.nombre }}</h3>
-					        	Descripción: {{ t.descripcion }}</br>
+								<span style="font-family:Arial" >Descripción: {{ t.descripcion }}</span></br>
 					        	Fecha taller: {{t.fecha}}</br>
 					        	Dirección y/o lugar donde se realizará el taller: {{t.lugar_taller}}
 					        	<br><img class="img-rounded" alt="Aquí había una imagen" style="width: 218px" src="{{ t.imagen.url }}" >
